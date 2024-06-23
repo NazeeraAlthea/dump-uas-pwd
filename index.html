@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form onsubmit="sendWhatsappMessage()">
+        <input type="text" id="name" placeholder="Nama Pemesan">
+        <button type="submit">pesan</button>
+    </form>
+
+    <script>
+        const today = new Date();
+            const f = new Intl.DateTimeFormat("id", {
+                dateStyle :"full",
+                timeStyle:"short",
+            })
+        const dateOrder = (f.format(today)) 
+
+        function sendWhatsappMessage() {
+            event.preventDefault()
+            const name = document.getElementById('name').value;
+
+            
+                       
+
+            const brandName = '%2ACAFEE%2A'
+            const message = 
+
+`%2A${name.toUpperCase()}%2A, ingin memesan di ${brandName} %0A %0A
+berikut adalah rincian transaksi di ${brandName} dengan rincian sebagai berikut: %0A %0A
+%2ATanggal%09%09:%2A ${dateOrder} %0A
+%2APesanan%09%09:%2A %0A
+%2ATotal Harga%09:%2A`
+
+            const urlToWhatsapp = `https://wa.me/6281384876277?text=${message}`;
+
+            window.open(urlToWhatsapp, '_blank');
+        }
+        
+
+    </script>
+</body>
+</html>
